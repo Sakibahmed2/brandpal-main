@@ -12,10 +12,11 @@ const sendContactMessage = async (email, name, message) => {
   });
 
   const mailOptions = {
-    from: email,
+    from: config.your_email,
     to: config.your_email,
     subject: `New message from ${name}`,
     text: message,
+    replyTo: email,
   };
 
   const result = await transporter.sendMail(mailOptions);
