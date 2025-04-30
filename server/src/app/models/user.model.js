@@ -23,17 +23,6 @@ const userSchema = new Schema({
     enum: ["user", "admin"],
     default: "user",
   },
-  offer: {
-    type: String,
-    default: "No offer",
-    enum: ["No offer", "free-trial", "40%-off"],
-  },
-  offerStartDate: {
-    type: Date,
-  },
-  offerEndDate: {
-    type: Date,
-  },
 });
 
 export const User = mongoose.model("User", userSchema);
