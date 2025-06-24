@@ -11,7 +11,7 @@ const ServicePage = () => {
 
       <OurServices />
 
-      <OfferSection />
+      {/* <OfferSection /> */}
       <div className="mt-16 text-center">
         <h2 className="text-3xl font-bold text-primary mb-4">
           Ready to Grow Your Business?

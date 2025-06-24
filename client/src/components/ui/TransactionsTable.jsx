@@ -47,7 +47,6 @@ const TransactionsTable = () => {
               <th className="dark:text-gray-400">Amount</th>
               <th className="dark:text-gray-400">Status</th>
               <th className="dark:text-gray-400">Transaction ID</th>
-              <th className="dark:text-gray-400">Offer</th>
             </tr>
           </thead>
           <tbody>
@@ -78,20 +77,6 @@ const TransactionsTable = () => {
                       {billing.transactionId}
                     </p>
                   </td>
-                </td>
-                <td className="px-4 py-2 ">
-                  <p
-                    className={cn(
-                      "badge ",
-                      billing.offer === "40%-off"
-                        ? "badge-success"
-                        : billing.offer === "free-trial"
-                        ? "badge-info"
-                        : "badge-error"
-                    )}
-                  >
-                    {billing.offer}
-                  </p>
                 </td>
               </tr>
             ))}

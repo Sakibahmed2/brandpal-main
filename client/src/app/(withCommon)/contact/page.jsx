@@ -15,13 +15,16 @@ const ContactPage = () => {
     const message = form.message.value;
 
     try {
-      const res = await fetch("http://localhost:5000/api/v1/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
+      const res = await fetch(
+        "https://brandpal-server.vercel.app/api/v1/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        }
+      );
       const data = await res.json();
 
       if (data?.success) {

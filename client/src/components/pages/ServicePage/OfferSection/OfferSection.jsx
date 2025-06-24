@@ -1,6 +1,5 @@
 "use client";
 
-import { useClaimOfferMutation } from "@/redux/api/userApi";
 import { getUserInfo } from "@/utils/getUserInfo";
 import { toast } from "sonner";
 
@@ -22,28 +21,6 @@ const offers = [
 ];
 
 const OfferSection = () => {
-  const userInfo = getUserInfo();
-  const [claimOffer] = useClaimOfferMutation();
-
-  const handleClaimOffer = async (offerName) => {
-    const toastId = toast.loading("Claiming offer...");
-
-    if (!userInfo?.id) {
-      toast.error("Please login to claim the offer", { id: toastId });
-    }
-    try {
-      const res = await claimOffer({
-        userId: userInfo?.id,
-        offerName,
-      }).unwrap();
-      if (res?.success) {
-        toast.success(res?.message, { id: toastId });
-      }
-    } catch (err) {
-      toast.error(err?.data?.message, { id: toastId });
-    }
-  };
-
   return (
     <div className="mt-16">
       <div className="container mx-auto">
@@ -72,10 +49,7 @@ const OfferSection = () => {
               </div>
               <div className="p-6 flex flex-col flex-grow justify-between">
                 <p className="text-lg">{offer.description}</p>
-                <button
-                  onClick={() => handleClaimOffer(offer?.offerName)}
-                  className="custom-outline-btn border-black hover:bg-black mt-5 font-semibold py-3"
-                >
+                <button className="custom-outline-btn border-black hover:bg-black mt-5 font-semibold py-3">
                   Claim now
                 </button>
               </div>

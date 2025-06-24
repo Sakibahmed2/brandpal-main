@@ -16,6 +16,8 @@ const OurServices = () => {
 
   const serviceData = data?.data;
 
+  console.log(serviceData);
+
   return (
     <div className="mt-20">
       <div className="text-center">

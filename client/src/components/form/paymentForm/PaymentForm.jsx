@@ -23,7 +23,7 @@ const PaymentForm = () => {
   const totalPrice = myOrder.reduce((total, item) => total + item.price, 0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/payment/create-payment", {
+    fetch("https://brandpal-server.vercel.app/api/v1/payment/create-payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -89,9 +89,6 @@ const PaymentForm = () => {
           date: new Date(),
           serviceName: myOrder.map((item) => item.name),
           serviceId: myOrder.map((item) => item.serviceId),
-          offer: myOrder.find((item) => item.offer === "40%-off")
-            ? "40%-off"
-            : "none",
           status: "pending",
         };
 

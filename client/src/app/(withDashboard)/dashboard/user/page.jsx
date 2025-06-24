@@ -6,7 +6,6 @@ import { Bell, CircleUserRound, Mail } from "lucide-react";
 
 import LoadingPage from "@/components/ui/LoadingPage";
 import { useGetSingleUserQuery } from "@/redux/api/userApi";
-import cn from "@/libs/cn";
 
 const UserDashboardPage = () => {
   const userInfo = getUserInfo();
@@ -65,7 +64,6 @@ const UserDashboardPage = () => {
                     <th className="px-4 py-2 text-left">Transaction ID</th>
                     <th className="px-4 py-2 text-left">Status</th>
                     <th className="px-4 py-2 text-left">Price</th>
-                    <th className="px-4 py-2 text-left">Offer</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -97,20 +95,6 @@ const UserDashboardPage = () => {
 
                       <td className="px-4 py-2 text-gray-700 dark:text-gray-300">
                         ${transaction.price}
-                      </td>
-                      <td className="px-4 py-2">
-                        <p
-                          className={cn(
-                            "badge w-20",
-                            transaction.offer === "40%-off"
-                              ? "badge-success text-white"
-                              : transaction.offer === "free-trial"
-                              ? "badge-info"
-                              : "badge-error"
-                          )}
-                        >
-                          {transaction.offer}
-                        </p>
                       </td>
                     </tr>
                   ))}

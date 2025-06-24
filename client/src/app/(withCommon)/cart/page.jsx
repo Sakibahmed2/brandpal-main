@@ -37,6 +37,8 @@ const CartPage = () => {
     }
   };
 
+  console.log(cartItems);
+
   return (
     <Container className="pt-20 pb-20">
       <div className="py-10 mx-4 lg:mx-0 mt-5 rounded-t-xl">
@@ -67,10 +69,10 @@ const CartPage = () => {
             >
               <div>
                 <p className="font-semibold text-xl text-primary w-64 lg:w-full">
-                  {item.title}
+                  {item.name}
                 </p>
                 <p className="light-text w-64 lg:w-full">{item.description}</p>
-                <p className="light-text">Duration: {item.time}</p>
+                <p className="light-text text-black">Duration: {item.time}</p>
               </div>
               <div className="text-right">
                 <p className="font-semibold text-lg">$ {item.price}</p>

@@ -1,35 +1,10 @@
 "use client";
 
 import bannerImg from "@/assets/bannerImg.png";
-import { useClaimOfferMutation } from "@/redux/api/userApi";
-import { getUserInfo } from "@/utils/getUserInfo";
 import Image from "next/image";
 import Link from "next/link";
-import { toast } from "sonner";
 
 const Banner = () => {
-  const userInfo = getUserInfo();
-  const [claimOffer] = useClaimOfferMutation();
-
-  const handleClaimOffer = async (offerName) => {
-    const toastId = toast.loading("Claiming offer...");
-
-    if (!userInfo?.id) {
-      toast.error("Please login to claim the offer", { id: toastId });
-    }
-    try {
-      const res = await claimOffer({
-        userId: userInfo?.id,
-        offerName,
-      }).unwrap();
-      if (res?.success) {
-        toast.success(res?.message, { id: toastId });
-      }
-    } catch (err) {
-      toast.error(err?.data?.message, { id: toastId });
-    }
-  };
-
   return (
     <div className="pt-28 md:pt-40">
       <div className="flex flex-col-reverse md:flex-row justify-center items-center">
@@ -47,10 +22,7 @@ const Banner = () => {
                 Get Started
               </button>
             </Link>
-            <button
-              onClick={() => handleClaimOffer("free-trial")}
-              className="custom-primary-btn py-3 md:py-5"
-            >
+            <button className="custom-primary-btn py-3 md:py-5">
               Try to free trial
             </button>
           </div>

@@ -4,11 +4,12 @@ import cn from "@/libs/cn";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
+import userImg from "@/assets/team/user-image.png";
 
 const TeamCard = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div className="border-2 border-zinc-400 rounded-xl p-2 text-center lg:w-[330px] w-[300px] mx-auto">
+    <div className="border-2 border-zinc-400 rounded-xl p-2 text-center  mx-auto ">
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -18,16 +19,18 @@ const TeamCard = ({ item }) => {
         )}
       >
         <Image
-          src={item.image}
+          src={userImg}
+          width={208}
+          height={208}
           alt={item.name}
           className={cn(
-            "mx-auto rounded-lg object-cover h-72 lg:h-80 duration-500 ease-in-out",
+            "mx-auto rounded-lg object-cover size-52 duration-500 ease-in-out",
             isHovered ? "saturate-100" : "xl:saturate-0"
           )}
         />
       </div>
       <div className="text-center mt-2">
-        <h3 className="text-xl font-semibold">{item.name}</h3>
+        <h3 className="text-lg font-medium">{item.name}</h3>
         <p className="light-text mt-2">{item.role}</p>
       </div>
 
